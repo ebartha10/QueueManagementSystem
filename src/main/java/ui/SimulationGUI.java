@@ -44,16 +44,24 @@ public class SimulationGUI implements Runnable {
                 panelQ.remove(t);
             }
         }
-        panelQ.setLayout(new GridLayoutManager(queueNumber + 1, 1, new Insets(5, 5, 0, 5), -1, -1));
+        panelScroll.setLayout(new ScrollPaneLayout());
+        panelQ.setLayout(new GridLayoutManager(queueNumber + 1, 1, new Insets(5, 5, 0, 0), -1, -1));
+        //panelQ.setPreferredSize(new Dimension(480, 480));
+
+        panelScroll.setPreferredSize(new Dimension(1, 1));
         queueGUIList = new ArrayList<>();
         for (int i = 0; i < queueNumber; i++) {
             QueueGUI queue = new QueueGUI(i + 1);
-            panelQ.add(queue, new GridConstraints(i, 0, 1, 1, GridConstraints.ANCHOR_NORTH, GridConstraints.FILL_HORIZONTAL, GridConstraints.SIZEPOLICY_CAN_SHRINK | GridConstraints.SIZEPOLICY_CAN_GROW, GridConstraints.SIZEPOLICY_CAN_SHRINK, null, null, null, 0, false));
+            panelQ.add(queue, new GridConstraints(i, 0, 1, 1, GridConstraints.ANCHOR_NORTH, GridConstraints.FILL_HORIZONTAL, GridConstraints.SIZEPOLICY_FIXED, GridConstraints.SIZEPOLICY_FIXED, null, null, null, 0, false));
             queue.setVisible(true);
             queueGUIList.add(queue);
         }
         resetSim = false;
         totalTasksBar.setString("Done: " + sharedCounter.getFinishedTasks());
+        panelScroll.setViewportView(panelQ);
+        panelScroll.revalidate();
+        panelScroll.repaint();
+
     }
 
     public void resetSimulation() {
@@ -65,6 +73,7 @@ public class SimulationGUI implements Runnable {
         textMinService.setText("");
         textFieldMinArrive.setText("");
         textFieldMaxArrive.setText("");
+        totalTasksBar.setString("Waiting for input");
         for (Component t : panelQ.getComponents()) {
             if (t instanceof QueueGUI) {
                 panelQ.remove(t);
@@ -89,6 +98,7 @@ public class SimulationGUI implements Runnable {
         resetButton.addActionListener(e -> {
             resetSim = true;
             System.out.println("RESETTING SIM");
+            resetSimulation();
         });
     }
 
@@ -186,7 +196,7 @@ public class SimulationGUI implements Runnable {
      */
     private void $$$setupUI$$$() {
         panel1 = new JPanel();
-        panel1.setLayout(new GridLayoutManager(2, 1, new Insets(0, 0, 0, 0), -1, -1));
+        panel1.setLayout(new GridLayoutManager(2, 1, new Insets(5, 10, 5, 10), -1, -1));
         panel1.setMinimumSize(new Dimension(640, 480));
         panel1.setPreferredSize(new Dimension(640, 480));
         final JPanel panel2 = new JPanel();
@@ -241,21 +251,23 @@ public class SimulationGUI implements Runnable {
         panel2.add(textTime, new GridConstraints(4, 4, 1, 1, GridConstraints.ANCHOR_WEST, GridConstraints.FILL_NONE, GridConstraints.SIZEPOLICY_FIXED, GridConstraints.SIZEPOLICY_FIXED, null, null, null, 5, false));
         resetButton = new JButton();
         resetButton.setText("Reset Simulation");
-        resetButton.setVisible(false);
+        resetButton.setVisible(true);
         panel2.add(resetButton, new GridConstraints(4, 1, 1, 1, GridConstraints.ANCHOR_WEST, GridConstraints.FILL_NONE, GridConstraints.SIZEPOLICY_CAN_SHRINK | GridConstraints.SIZEPOLICY_CAN_GROW, GridConstraints.SIZEPOLICY_FIXED, null, null, null, 0, false));
         totalTasksBar = new JProgressBar();
         totalTasksBar.setBackground(new Color(-16741596));
         totalTasksBar.setBorderPainted(false);
-        totalTasksBar.setForeground(new Color(-16741596));
+        totalTasksBar.setForeground(new Color(-1542886));
         totalTasksBar.setIndeterminate(true);
         totalTasksBar.setInheritsPopupMenu(true);
         totalTasksBar.setName("TotalTasks");
-        totalTasksBar.setString("Tasks Finished");
+        totalTasksBar.setString("Waiting for input");
         totalTasksBar.setStringPainted(true);
         totalTasksBar.setValue(50);
-        panel2.add(totalTasksBar, new GridConstraints(4, 2, 1, 1, GridConstraints.ANCHOR_CENTER, GridConstraints.FILL_VERTICAL, GridConstraints.SIZEPOLICY_WANT_GROW, GridConstraints.SIZEPOLICY_CAN_SHRINK | GridConstraints.SIZEPOLICY_CAN_GROW, null, null, null, 0, false));
+        panel2.add(totalTasksBar, new GridConstraints(4, 2, 1, 1, GridConstraints.ANCHOR_CENTER, GridConstraints.FILL_VERTICAL, GridConstraints.SIZEPOLICY_CAN_SHRINK | GridConstraints.SIZEPOLICY_WANT_GROW, GridConstraints.SIZEPOLICY_CAN_SHRINK | GridConstraints.SIZEPOLICY_CAN_GROW, null, null, null, 0, false));
         panelScroll = new JScrollPane();
-        panel1.add(panelScroll, new GridConstraints(1, 0, 1, 1, GridConstraints.ANCHOR_NORTH, GridConstraints.FILL_HORIZONTAL, GridConstraints.SIZEPOLICY_CAN_SHRINK | GridConstraints.SIZEPOLICY_WANT_GROW, GridConstraints.SIZEPOLICY_CAN_GROW, null, null, null, 0, false));
+        panelScroll.setHorizontalScrollBarPolicy(30);
+        panelScroll.setVerticalScrollBarPolicy(22);
+        panel1.add(panelScroll, new GridConstraints(1, 0, 1, 1, GridConstraints.ANCHOR_CENTER, GridConstraints.FILL_BOTH, 1, GridConstraints.SIZEPOLICY_WANT_GROW, null, null, null, 1, false));
         panelQ = new JPanel();
         panelQ.setLayout(new GridLayoutManager(1, 1, new Insets(0, 0, 0, 0), -1, -1));
         panelScroll.setViewportView(panelQ);
@@ -291,4 +303,7 @@ public class SimulationGUI implements Runnable {
     }
 
 
+    private void createUIComponents() {
+        // TODO: place custom component creation code here
+    }
 }

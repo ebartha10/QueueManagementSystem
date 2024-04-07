@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <form xmlns="http://www.intellij.com/uidesigner/form/" version="1" bind-to-class="ui.SimulationGUI">
   <grid id="27dc6" binding="panel1" default-binding="true" layout-manager="GridLayoutManager" row-count="2" column-count="1" same-size-horizontally="false" same-size-vertically="false" hgap="-1" vgap="-1">
-    <margin top="0" left="0" bottom="0" right="0"/>
+    <margin top="5" left="10" bottom="5" right="10"/>
     <constraints>
       <xy x="20" y="20" width="1280" height="720"/>
     </constraints>
@@ -163,21 +163,21 @@
             </constraints>
             <properties>
               <text value="Reset Simulation"/>
-              <visible value="false"/>
+              <visible value="true"/>
             </properties>
           </component>
           <component id="a7ea4" class="javax.swing.JProgressBar" binding="totalTasksBar">
             <constraints>
-              <grid row="4" column="2" row-span="1" col-span="1" vsize-policy="3" hsize-policy="6" anchor="0" fill="2" indent="0" use-parent-layout="false"/>
+              <grid row="4" column="2" row-span="1" col-span="1" vsize-policy="3" hsize-policy="7" anchor="0" fill="2" indent="0" use-parent-layout="false"/>
             </constraints>
             <properties>
               <background color="-16741596"/>
               <borderPainted value="false"/>
-              <foreground color="-16741596"/>
+              <foreground color="-1542886"/>
               <indeterminate value="true"/>
               <inheritsPopupMenu value="true"/>
               <name value="TotalTasks"/>
-              <string value="Tasks Finished"/>
+              <string value="Waiting for input"/>
               <stringPainted value="true"/>
               <value value="50"/>
             </properties>
@@ -186,9 +186,12 @@
       </grid>
       <scrollpane id="9af0d" binding="panelScroll">
         <constraints>
-          <grid row="1" column="0" row-span="1" col-span="1" vsize-policy="2" hsize-policy="7" anchor="1" fill="1" indent="0" use-parent-layout="false"/>
+          <grid row="1" column="0" row-span="1" col-span="1" vsize-policy="6" hsize-policy="1" anchor="0" fill="3" indent="1" use-parent-layout="false"/>
         </constraints>
-        <properties/>
+        <properties>
+          <horizontalScrollBarPolicy value="30"/>
+          <verticalScrollBarPolicy value="22"/>
+        </properties>
         <border type="none"/>
         <children>
           <grid id="c9ad8" binding="panelQ" layout-manager="GridLayoutManager" row-count="1" column-count="1" same-size-horizontally="false" same-size-vertically="false" hgap="-1" vgap="-1">

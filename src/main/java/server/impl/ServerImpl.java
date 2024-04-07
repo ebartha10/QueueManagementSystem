@@ -43,7 +43,6 @@ public class ServerImpl implements Server, Runnable, Comparable<ServerImpl>{
                 continue;
             }
             currentTask.setWaitingTime(sharedCounter.getSimulationTime() - currentTask.getArrivalTime());
-            //System.out.println("TASK RUNNING :" + currentTask.toString() + Thread.currentThread().getName() + "\n");
             simulationLogger.logTaskStart(currentTask, serverID);
             setTaskIDRunning(currentTask.getID());
 
@@ -55,7 +54,6 @@ public class ServerImpl implements Server, Runnable, Comparable<ServerImpl>{
                 return;
             }
             simulationLogger.logTaskEnd(currentTask, serverID);
-            //System.out.println("TASK END:" + currentTask.toString() + Thread.currentThread().getName() + "\n");
         }
     }
     private void serviceTask(Task givenTask) throws InterruptedException{

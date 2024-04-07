@@ -56,7 +56,6 @@ public class SimulationManager implements Runnable {
 
         while (sharedCounter.getSimulationTime() < timeLimit) {
             sharedCounter.countTime();
-            //System.out.println("TIME :" + sharedCounter.getSimulationTime() + scheduler.toString());
 
             int serviceTime = dispatchTasksForCurrentTime();
             statisticsKeeper.updateServiceTime(serviceTime);
@@ -73,7 +72,6 @@ public class SimulationManager implements Runnable {
             statisticsKeeper.updateWaitingTime(t.getWaitingTime());
         }
         simulationLogger.logSimulationEnd((float) statisticsKeeper.getServiceTime() / taskList.size(), (float) statisticsKeeper.getWaitingTime() / taskList.size());
-        //System.out.println("END SIM\nAVERAGE SERVICE TIME: " + (float) serviceTime / numberOfTasks + "\nAVERAGE WAITING TIME: " + (float) waitingTime / numberOfTasks);
     }
     private int dispatchTasksForCurrentTime(){
         int serviceTime = 0;

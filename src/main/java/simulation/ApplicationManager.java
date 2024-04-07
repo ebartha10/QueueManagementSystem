@@ -18,7 +18,7 @@ public class ApplicationManager implements Runnable{
         JFrame frame = new JFrame("Simulation");
         frame.setContentPane(simulationGUI.$$$getRootComponent$$$());
         frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-        frame.setResizable(false);
+        //frame.setResizable(false);
         frame.pack();
         frame.setVisible(true);
     }
@@ -27,7 +27,7 @@ public class ApplicationManager implements Runnable{
     public void run() {
         while(true) {
             synchronized (simulationGUI.getStartSimulationButton()) {
-                System.out.println("WAITING");
+                System.out.println("WAITING FOR SIMULATION");
                 try {
                     simulationGUI.getStartSimulationButton().wait();
                 }
@@ -51,7 +51,6 @@ public class ApplicationManager implements Runnable{
                             server.stopServer();
                         }
                         simulationManagerThread.interrupt();
-                        simulationGUI.resetSimulation();
                         break;
                     }
                     try {
