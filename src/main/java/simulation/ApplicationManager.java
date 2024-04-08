@@ -37,6 +37,9 @@ public class ApplicationManager implements Runnable{
                 }
 
                 simulationManager = parseSimulationParametersFromGUI(simulationGUI);
+                if(simulationManager == null){
+                    continue;
+                }
                 simulationGUI.initSimulation(simulationManager.getNumberOfServers());
 
                 Thread simulationManagerThread = new Thread(simulationManager);
@@ -68,6 +71,24 @@ public class ApplicationManager implements Runnable{
 
     //TODO ADD CHECKS FOR NULL ETC
     private SimulationManager parseSimulationParametersFromGUI(SimulationGUI simulationGUI) {
+        String clientsText = simulationGUI.getTextFieldClients().getText();
+        String queuesText = simulationGUI.getTextFieldQueues().getText();
+        String simIntervalText = simulationGUI.getTextFieldInterval().getText();
+        String minArrivalText = simulationGUI.getTextFieldMinArrive().getText();
+        String maxArrivalText = simulationGUI.getTextFieldMaxArrive().getText();
+        String minServiceText = simulationGUI.getTextMinService().getText();
+        String maxServiceText = simulationGUI.getTextMaxService().getText();
+        if (clientsText == null || clientsText.isEmpty()
+                || queuesText == null || queuesText.isEmpty()
+                || simIntervalText == null || simIntervalText.isEmpty()
+                || minArrivalText == null || minArrivalText.isEmpty()
+                || maxArrivalText == null || maxArrivalText.isEmpty()
+                || minServiceText == null || minServiceText.isEmpty()
+                || maxServiceText == null || maxServiceText.isEmpty()){
+            JOptionPane.showMessageDialog(new JFrame(), "Please enter numbers!", "Error",
+                                          JOptionPane.ERROR_MESSAGE);
+            return null;
+        }
         int clients = Integer.parseInt(simulationGUI.getTextFieldClients().getText());
         int queues = Integer.parseInt(simulationGUI.getTextFieldQueues().getText());
         int simInterval = Integer.parseInt(simulationGUI.getTextFieldInterval().getText());
@@ -75,6 +96,42 @@ public class ApplicationManager implements Runnable{
         int maxArrival = Integer.parseInt(simulationGUI.getTextFieldMaxArrive().getText());
         int minService = Integer.parseInt(simulationGUI.getTextMinService().getText());
         int maxService = Integer.parseInt(simulationGUI.getTextMaxService().getText());
+
+        if(clients < 0 ){
+            JOptionPane.showMessageDialog(new JFrame(), "Please enter a valid client number!", "Error",
+                                          JOptionPane.ERROR_MESSAGE);
+            return null;
+        }
+        if(queues < 0 ){
+            JOptionPane.showMessageDialog(new JFrame(), "Please enter a valid queue number!", "Error",
+                                          JOptionPane.ERROR_MESSAGE);
+            return null;
+        }
+        if(simInterval < 0 ){
+            JOptionPane.showMessageDialog(new JFrame(), "Please enter a valid simulation interval number!", "Error",
+                                          JOptionPane.ERROR_MESSAGE);
+            return null;
+        }
+        if(minArrival < 0 || minArrival > simInterval){
+            JOptionPane.showMessageDialog(new JFrame(), "Please enter a valid minimum arrival number!", "Error",
+                                          JOptionPane.ERROR_MESSAGE);
+            return null;
+        }
+        if(maxArrival < 0 || maxArrival > simInterval || maxArrival < minArrival ){
+            JOptionPane.showMessageDialog(new JFrame(), "Please enter a valid maximum arrival number!", "Error",
+                                          JOptionPane.ERROR_MESSAGE);
+            return null;
+        }
+        if(minService < 0 || minService > simInterval){
+            JOptionPane.showMessageDialog(new JFrame(), "Please enter a valid minimum service number!", "Error",
+                                          JOptionPane.ERROR_MESSAGE);
+            return null;
+        }
+        if(maxService < 0 || maxService > simInterval || maxService < minArrival ){
+            JOptionPane.showMessageDialog(new JFrame(), "Please enter a valid maximum service number!", "Error",
+                                          JOptionPane.ERROR_MESSAGE);
+            return null;
+        }
         return new SimulationManager(queues, simInterval, minService, maxService, minArrival, maxArrival, clients);
     }
 }
