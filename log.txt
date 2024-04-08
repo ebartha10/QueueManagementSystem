@@ -1,35 +1,99 @@
-Simulation started: 17:56:55.173346500
-Task number: 2
-Queue number: 2
-Time limit: 4
+Simulation started: 08:21:34.503036500
+Task number: 20
+Queue number: 5
+Time limit: 200
 Tasks:
-Task{ID=0, arrivalTime=1, serviceTime=1}
-Task{ID=1, arrivalTime=1, serviceTime=1}
+Task{ID=0, arrivalTime=2, serviceTime=2}
+Task{ID=1, arrivalTime=2, serviceTime=3}
+Task{ID=5, arrivalTime=2, serviceTime=3}
+Task{ID=8, arrivalTime=2, serviceTime=2}
+Task{ID=9, arrivalTime=2, serviceTime=2}
+Task{ID=11, arrivalTime=2, serviceTime=2}
+Task{ID=14, arrivalTime=2, serviceTime=2}
+Task{ID=18, arrivalTime=2, serviceTime=4}
+Task{ID=2, arrivalTime=3, serviceTime=4}
+Task{ID=4, arrivalTime=3, serviceTime=2}
+Task{ID=6, arrivalTime=3, serviceTime=4}
+Task{ID=7, arrivalTime=3, serviceTime=3}
+Task{ID=15, arrivalTime=3, serviceTime=3}
+Task{ID=17, arrivalTime=3, serviceTime=3}
+Task{ID=19, arrivalTime=3, serviceTime=3}
+Task{ID=3, arrivalTime=4, serviceTime=3}
+Task{ID=10, arrivalTime=4, serviceTime=3}
+Task{ID=12, arrivalTime=4, serviceTime=3}
+Task{ID=13, arrivalTime=4, serviceTime=2}
+Task{ID=16, arrivalTime=4, serviceTime=3}
 Time = 0
 Time = 1
-TASK START: Task{ID=1, arrivalTime=1, serviceTime=1} at queue: 1 at time: 17:56:56.178213700
-TASK START: Task{ID=0, arrivalTime=1, serviceTime=1} at queue: 0 at time: 17:56:56.178213700
 Time = 2
-TASK END: Task{ID=1, arrivalTime=1, serviceTime=1} at queue: 1 at time: 17:56:57.179199100
-TASK END: Task{ID=0, arrivalTime=1, serviceTime=1} at queue: 0 at time: 17:56:57.179199100
+TASK START: Task{ID=8, arrivalTime=2, serviceTime=2} at queue: 3 at time: 08:21:36.517305100
+TASK START: Task{ID=0, arrivalTime=2, serviceTime=2} at queue: 0 at time: 08:21:36.517305100
+TASK START: Task{ID=9, arrivalTime=2, serviceTime=2} at queue: 4 at time: 08:21:36.517305100
+TASK START: Task{ID=5, arrivalTime=2, serviceTime=3} at queue: 2 at time: 08:21:36.517305100
+TASK START: Task{ID=1, arrivalTime=2, serviceTime=3} at queue: 1 at time: 08:21:36.517305100
 Time = 3
 Time = 4
-SIMULATION ENDED
-Average service time:1.0
-Average waiting time0.0
-Simulation started: 17:57:13.303587200
-Task number: 1
-Queue number: 3
-Time limit: 4
-Tasks:
-Task{ID=0, arrivalTime=1, serviceTime=1}
-Time = 0
-Time = 1
-TASK START: Task{ID=0, arrivalTime=1, serviceTime=1} at queue: 2 at time: 17:57:14.312277900
-Time = 2
-TASK END: Task{ID=0, arrivalTime=1, serviceTime=1} at queue: 2 at time: 17:57:15.313529100
-Time = 3
-Time = 4
-SIMULATION ENDED
-Average service time:1.0
-Average waiting time0.0
+TASK END: Task{ID=8, arrivalTime=2, serviceTime=2} at queue: 3 at time: 08:21:38.527642900
+TASK END: Task{ID=0, arrivalTime=2, serviceTime=2} at queue: 0 at time: 08:21:38.527642900
+TASK START: Task{ID=14, arrivalTime=2, serviceTime=2} at queue: 3 at time: 08:21:38.527642900
+TASK START: Task{ID=11, arrivalTime=2, serviceTime=2} at queue: 0 at time: 08:21:38.527642900
+TASK END: Task{ID=9, arrivalTime=2, serviceTime=2} at queue: 4 at time: 08:21:38.527642900
+TASK START: Task{ID=18, arrivalTime=2, serviceTime=4} at queue: 4 at time: 08:21:38.527642900
+Time = 5
+TASK END: Task{ID=1, arrivalTime=2, serviceTime=3} at queue: 1 at time: 08:21:39.521213800
+TASK START: Task{ID=2, arrivalTime=3, serviceTime=4} at queue: 1 at time: 08:21:39.521213800
+TASK END: Task{ID=5, arrivalTime=2, serviceTime=3} at queue: 2 at time: 08:21:39.521213800
+TASK START: Task{ID=4, arrivalTime=3, serviceTime=2} at queue: 2 at time: 08:21:39.522206
+Time = 6
+TASK END: Task{ID=11, arrivalTime=2, serviceTime=2} at queue: 0 at time: 08:21:40.543602100
+TASK END: Task{ID=14, arrivalTime=2, serviceTime=2} at queue: 3 at time: 08:21:40.543602100
+TASK START: Task{ID=7, arrivalTime=3, serviceTime=3} at queue: 3 at time: 08:21:40.543602100
+TASK START: Task{ID=6, arrivalTime=3, serviceTime=4} at queue: 0 at time: 08:21:40.543602100
+Time = 7
+TASK END: Task{ID=4, arrivalTime=3, serviceTime=2} at queue: 2 at time: 08:21:41.536031400
+TASK START: Task{ID=15, arrivalTime=3, serviceTime=3} at queue: 2 at time: 08:21:41.536031400
+Time = 8
+TASK END: Task{ID=18, arrivalTime=2, serviceTime=4} at queue: 4 at time: 08:21:42.559899900
+TASK START: Task{ID=17, arrivalTime=3, serviceTime=3} at queue: 4 at time: 08:21:42.559899900
+Time = 9
+TASK END: Task{ID=2, arrivalTime=3, serviceTime=4} at queue: 1 at time: 08:21:43.548227600
+TASK START: Task{ID=19, arrivalTime=3, serviceTime=3} at queue: 1 at time: 08:21:43.548227600
+TASK END: Task{ID=7, arrivalTime=3, serviceTime=3} at queue: 3 at time: 08:21:43.563279500
+TASK START: Task{ID=3, arrivalTime=4, serviceTime=3} at queue: 3 at time: 08:21:43.563279500
+Time = 10
+TASK END: Task{ID=15, arrivalTime=3, serviceTime=3} at queue: 2 at time: 08:21:44.551655100
+TASK START: Task{ID=12, arrivalTime=4, serviceTime=3} at queue: 2 at time: 08:21:44.551655100
+TASK END: Task{ID=6, arrivalTime=3, serviceTime=4} at queue: 0 at time: 08:21:44.567694
+TASK START: Task{ID=10, arrivalTime=4, serviceTime=3} at queue: 0 at time: 08:21:44.567694
+Time = 11
+TASK END: Task{ID=17, arrivalTime=3, serviceTime=3} at queue: 4 at time: 08:21:45.571692
+TASK START: Task{ID=13, arrivalTime=4, serviceTime=2} at queue: 4 at time: 08:21:45.571692
+Time = 12
+TASK END: Task{ID=19, arrivalTime=3, serviceTime=3} at queue: 1 at time: 08:21:46.563502
+TASK START: Task{ID=16, arrivalTime=4, serviceTime=3} at queue: 1 at time: 08:21:46.563502
+TASK END: Task{ID=3, arrivalTime=4, serviceTime=3} at queue: 3 at time: 08:21:46.578239600
+TASK END: Task{ID=12, arrivalTime=4, serviceTime=3} at queue: 2 at time: 08:21:47.573435800
+Time = 13
+TASK END: Task{ID=10, arrivalTime=4, serviceTime=3} at queue: 0 at time: 08:21:47.589454200
+TASK END: Task{ID=13, arrivalTime=4, serviceTime=2} at queue: 4 at time: 08:21:47.594436800
+Time = 14
+Time = 15
+TASK END: Task{ID=16, arrivalTime=4, serviceTime=3} at queue: 1 at time: 08:21:49.591843200
+Time = 16
+Time = 17
+Time = 18
+Time = 19
+Time = 20
+Time = 21
+Time = 22
+Time = 23
+Time = 24
+Time = 25
+Time = 26
+Time = 27
+Time = 28
+Time = 29
+Time = 30
+Time = 31
+Time = 32
+Time = 33
