@@ -82,7 +82,7 @@ public class ApplicationManager implements Runnable{
                 || queuesText == null || queuesText.isEmpty()
                 || simIntervalText == null || simIntervalText.isEmpty()
                 || minArrivalText == null || minArrivalText.isEmpty()
-                || maxArrivalText == null || maxArrivalText.isEmpty()
+                || maxArrivalText  == null || maxArrivalText.isEmpty()
                 || minServiceText == null || minServiceText.isEmpty()
                 || maxServiceText == null || maxServiceText.isEmpty()){
             JOptionPane.showMessageDialog(new JFrame(), "Please enter numbers!", "Error",
